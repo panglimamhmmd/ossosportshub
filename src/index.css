@@ -2,9 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply transition-colors duration-300;
+}
+
+@media (min-width: 1024px) {
   body {
-    @apply transition-colors duration-300;
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  .cursor-pointer {
+    cursor: none;
   }
 }
 
@@ -146,4 +164,59 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Swiper JS Customization */
+.swiper-pagination-bullet {
+  background-color: theme('colors.primary') !important;
+  opacity: 0.3 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: theme('colors.accent') !important;
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 999px !important;
+}
+
+.dark .swiper-pagination-bullet {
+  background-color: theme('colors.gray.500') !important;
+}
+
+.dark .swiper-pagination-bullet-active {
+  background-color: theme('colors.accent') !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: theme('colors.primary') !important;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1.25rem !important;
+  font-weight: bold;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+  color: theme('colors.accent') !important;
+  transform: scale(1.1);
+}
+
+.dark .swiper-button-prev,
+.dark .swiper-button-next {
+  color: theme('colors.white') !important;
+  opacity: 0.5;
+}
+
+.dark .swiper-button-prev:hover,
+.dark .swiper-button-next:hover {
+  color: theme('colors.accent') !important;
 }
